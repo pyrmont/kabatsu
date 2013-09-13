@@ -90,7 +90,7 @@ FirstPublication.prototype.extractArticles = function() {
         section_element = this.dom(elements[i]).find('h2.section');
         section = SuperString(section_element.text()).trim().s;
 
-        if (this.included_sections.indexOf(section) > -1) { continue; }
+        if (this.included_sections.indexOf(section) == -1) { continue; }
         
         story_elements = this.dom(elements[i]).find('div.article');
         
