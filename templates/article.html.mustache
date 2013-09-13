@@ -1,0 +1,42 @@
+<!doctype html>
+
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>{{ article.title }}</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href='/assets/reset.css' type='text/css'>
+    <link rel="stylesheet" href="/assets/base.css" type="text/css">
+		
+</head>
+
+<body class="article">
+    
+    <article>
+        <h1>{{ article.title }}</h1>
+        <h2>{{ article.byline }}</h2>
+        <h3>{{ publication.date }} </h3>
+    
+        <div class="content">
+            {{{ article.content }}}
+        </div>
+    </article>
+    
+    <div class="controls">
+        {{ #prev }}
+        <a href="{{{ prev }}}" class="previous">Previous</a>
+        {{ /prev }}
+        <a href="/{{ publication.slug }}/" class="contents">Contents</a>
+        {{ #next }}
+        <a href="{{{ next }}}" class="next">Next</a>
+        {{ /next }}
+    </div>
+    
+    <footer>
+        <p>This article was originally published in {{ publication.name }} on {{ publication.date }}. You can access the original story at <a href="{{{ article.uris.citation }}}">{{ article.uris.citation }}</a>.</p>
+    </footer>
+</body>
+</html>

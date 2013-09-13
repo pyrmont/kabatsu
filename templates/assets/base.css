@@ -1,0 +1,33 @@
+body { background-color: #ffffff; color: #222222; font-family: 'Georgia', 'Times New Roman', 'Times', serif; font-size: 62.5%; margin: 0 auto; max-width: 650px; padding: 3em 3em 0 3em; }
+
+a { color: #336699; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, footer, div.controls { font-family: 'Helvetica Neue', 'Helvetica', 'Lucida Sans', sans-serif; }
+
+body.contents { margin-bottom: 5em; }
+body.contents a:hover { text-decoration: none; }
+body.contents h1 { font-size: 6.0em; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8em; margin-top: 0.3em; text-align: right; }
+body.contents h2 { color: #bbb; font-size: 5.0em; font-weight: 200; letter-spacing: -0.05em; margin-bottom: 0.5em; text-align: right; }
+body.contents h3 { color: #bbb; font-size: 2.5em; font-weight: 200; margin: 1.5em 0 0.7em 0; }
+body.contents h4 { font-size: 1.8em; }
+body.contents h5 { color: #888; font-size: 1.4em; margin-bottom: 1.0em; }
+
+body.article h1 { font-size: 3.0em; font-weight: 800; margin-bottom: 0.5em; }
+body.article h2 { color: #888; font-size: 1.8em; font-weight: 800; margin-bottom: 0.5em; }
+body.article h3 { color: #bbb; font-size: 1.5em; font-weight: normal; margin-bottom: 0.5em; }
+body.article h4 { font-size: 1.8em; font-weight: 600; margin-bottom: 0.6em; }
+
+body.article p { font-size: 1.8em; line-height: 1.2em; margin-bottom: 1.0em; text-align: justify; }
+
+body.article article div.content { padding-top: 1.0em; }
+
+body.article div.controls { font-size: 1.6em; height: 1.6em; margin: 3em 0 2em 0; position: relative; text-align: center; width: 100%; }
+body.article div.controls a { display: inline; position: absolute; }
+body.article div.controls a.previous { left: 0; text-align: left; width: 25%; z-index: 2; }
+body.article div.controls a.contents { left: 0; right: 0; z-index: 1; }
+body.article div.controls a.next { right: 0; text-align: right; width: 25%; z-index: 1; }
+
+body.article footer { padding-bottom: 1.5em; }
+body.article footer p { color: #bbb; font-size: 1.4em; line-height: 1.3em; }
+body.article footer p a { color: #bbb; }
