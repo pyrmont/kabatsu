@@ -3,6 +3,10 @@ body { background-color: #ffffff; color: #222222; font-family: 'Georgia', 'Times
 a { color: #336699; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+blockquote { margin-left: 1em; font-style: italic; }
+em { font-style: italic; }
+strong { font-weight: 800; }
+
 h1, h2, h3, footer, div.controls { font-family: 'Helvetica Neue', 'Helvetica', 'Lucida Sans', sans-serif; }
 
 body.contents { margin-bottom: 5em; }
