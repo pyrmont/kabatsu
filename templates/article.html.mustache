@@ -10,13 +10,13 @@
     
     <link rel="stylesheet" href='/assets/reset.css' type='text/css'>
     <link rel="stylesheet" href="/assets/base.css" type="text/css">
-		
+
 </head>
 
 <body class="article">
     
     <article>
-        <h1>{{ article.title }}</h1>
+        <h1><a href="#footer">{{ article.title }}</a></h1>
         <h2>{{ article.byline }}</h2>
         <h3>{{ publication.date }} </h3>
     
@@ -27,15 +27,16 @@
     
     <div class="controls">
         {{ #prev }}
-        <a href="{{{ prev }}}" class="previous">Previous</a>
+        <a href="{{{ prev }}}" class="previous" id="previous">Previous</a>
         {{ /prev }}
         <a href="/{{ publication.slug }}/" class="contents">Contents</a>
         {{ #next }}
-        <a href="{{{ next }}}" class="next">Next</a>
+        <a href="{{{ next }}}" class="next" id="next">Next</a>
         {{ /next }}
     </div>
     
     <footer>
+        <a name="footer">
         <p>This article was originally published in {{ publication.name }} on {{ publication.date }}. You can access the original story at <a href="{{{ article.uris.citation }}}">{{{ article.uris.display }}}</a>.</p>
     </footer>
 </body>

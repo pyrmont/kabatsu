@@ -18,6 +18,9 @@ body.article h2 { color: #888; font-size: 1.8em; font-weight: 800; margin-bottom
 body.article h3 { color: #bbb; font-size: 1.5em; font-weight: normal; margin-bottom: 0.5em; }
 body.article h4 { font-size: 1.8em; font-weight: 600; margin-bottom: 0.6em; }
 
+body.article h1 a { color: inherit; }
+body.article h1 a:hover { text-decoration: none; }
+
 body.article p { font-size: 1.8em; line-height: 1.2em; margin-bottom: 1.0em; text-align: justify; }
 
 body.article article div.content { padding-top: 1.0em; }
