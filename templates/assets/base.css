@@ -1,4 +1,4 @@
-body { background-color: #ffffff; color: #222222; font-family: 'Georgia', 'Times New Roman', 'Times', serif; font-size: 62.5%; margin: 0 auto; max-width: 650px; padding: 3em 3em 0 3em; }
+body { background-color: #ffffff; color: #222222; font-family: 'Georgia', 'Times New Roman', 'Times', serif; font-size: 62.5%; margin: 0 auto; max-width: 650px; padding: 3em 5% 0 5%; }
 
 a { color: #336699; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -31,3 +31,9 @@ body.article div.controls a.next { right: 0; text-align: right; width: 25%; z-in
 body.article footer { padding-bottom: 1.5em; }
 body.article footer p { color: #bbb; font-size: 1.4em; line-height: 1.3em; }
 body.article footer p a { color: #bbb; }
+
+@media only screen and (max-width: 500px) {
+
+body { font-size: 55%; padding-top: 5%; }
+
+}
