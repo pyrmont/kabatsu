@@ -105,7 +105,7 @@ FirstPublication.prototype.extractArticles = function() {
             var byline_elements = this.dom(story).find('div.byline');
             var byline = SuperString(byline_elements.text()).trim().s;
 
-            var uris = { 'original' : link, 'retrieve' : link, 'citation' : link, 'local' : '/' + this.slug + '/' + SuperString(title).slugify().s + '.html' };
+            var uris = { 'original' : link, 'retrieve' : link, 'citation' : link, 'display' : display, 'local' : '/' + this.slug + '/' + SuperString(title).slugify().s + '.html' };
 
             var authors = byline.split(/, | and /);
 

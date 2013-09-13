@@ -19,7 +19,7 @@ var SuperString = require('string');
 *
 *  @param {Publication} publication - The publication this article appears in.
 *  @param {Number} id - The position within the list of articles for this publication.
-*  @param {String[]} uris - An associative array of URIs (required original, retrieve, citation, local)
+*  @param {String[]} uris - An associative array of URIs (required original, retrieve, citation, display, local)
 *
 *  @param {String} [section] - The section of the publication in which the article appeared.
 *  @param {String} [title] - The title of the article.
