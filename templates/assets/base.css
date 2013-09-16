@@ -9,11 +9,12 @@ strong { font-weight: 800; }
 
 h1, h2, h3, footer, div.controls { font-family: 'Helvetica Neue', 'Helvetica', 'Lucida Sans', sans-serif; }
 
+body.top { margin-bottom: 3em; }
 body.top a:hover { text-decoration: none; }
 body.top h1 { color: #eee; font-size: 3.0em; margin-top: 4em; text-align: right; }
 body.top h1 span.title { color: #ddd; }
 body.top h2 { font-size: 6.0em; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8em; margin-top: 0.3em; }
-body.top h3 { color: #bbb; font-size: 5.0em; font-weight: 200; letter-spacing: -0.05em; margin-bottom: 0.5em; }
+body.top h3 { color: #bbb; font-size: 5.0em; font-weight: 200; letter-spacing: -0.05em; margin-bottom: 1em; }
 body.top h3 a { color: inherit; }
 
 body.contents { margin-bottom: 5em; }
