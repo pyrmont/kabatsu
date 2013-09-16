@@ -10,6 +10,7 @@
 */
 
 var FS = require('fs');
+var Mustache = require('mustache');
 var NCP = require('ncp');
 var Path = require('path');
 var Request = require('request');
@@ -17,9 +18,9 @@ var Request = require('request');
 /*
 *  @class Underling
 *
-*  @param {string} output_dir - The output directory (defaults to 'output').
-*  @param {string} template_dir - The template directory (defaults to 'templates').
-*  @param {string} assets_slug - The assets slug (defaults to 'assets').
+*  @param {String} [output_dir] - The output directory (defaults to 'output').
+*  @param {String} [template_dir] - The template directory (defaults to 'templates').
+*  @param {String} [assets_slug] - The assets slug (defaults to 'assets').
 */
 
 function Underling(output_dir, template_dir, assets_slug) {
@@ -30,6 +31,8 @@ function Underling(output_dir, template_dir, assets_slug) {
     this.template_dir = (template_dir) || 'templates';
     this.template_dir = path + '/' + this.template_dir;
     this.assets_slug = (assets_slug) || 'assets';
+
+    this.completed = 0;
 };
 
 /*
@@ -40,18 +43,21 @@ function Underling(output_dir, template_dir, assets_slug) {
 *  (5) loops over each article; (6) extracts the content from the article webpage; and (7) outputs an article page.
 */
 Underling.prototype.retrieve = function() {
-    var output_dir = this.output_dir;
-    var template_dir = this.template_dir;
+    var underling = this;
+    var num_completed = 0;
 
     this.publications.forEach(function(publication) {
         Request(publication.uris.toc, function(error, response, body) {
 
             if (!error && response.statusCode == 200) {
-                publication.setDirectories(output_dir, template_dir); // TODO: Use .bind() on Request to avoid this issue.
+                publication.setDirectories(underling.output_dir, underling.template_dir);
                 publication.setDOM(body);
                 publication.extractDate();
                 publication.extractArticles();
                 publication.cache(); // Save the publication to 'output/<publication.slug>/index.html'.
+                
+                num_completed++;
+                if (num_completed == underling.publications.length) { underling.cache(); }
 
                 publication.articles.forEach(function(article) {
                     Request(article.uris['retrieve'], function(error, response, body) {
@@ -71,6 +77,19 @@ Underling.prototype.retrieve = function() {
         });
     });
 };
+
+/*
+*  @method cache
+*  
+*  This function creates an index for all the publications.
+*/
+Underling.prototype.cache = function() {
+    if (!FS.existsSync(this.output_dir)) { FS.mkdirSync(this.output_dir + '/' + this.slug); } // TODO: Throw error if output_dir not set.
+
+    var template = FS.readFileSync(this.template_dir + '/top.html.mustache', { encoding: "utf-8" });
+    var output = Mustache.render(template, { publications: this.publications });
+    FS.writeFileSync(this.output_dir + '/index.html', output);
+}
 
 /*
 *  @method setup

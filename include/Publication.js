@@ -101,7 +101,7 @@ Publication.prototype.cache = function() {
         }
     }
 
-    var template = FS.readFileSync(this.template_dir + '/index.html.mustache', { encoding: "utf-8" });
+    var template = FS.readFileSync(this.template_dir + '/contents.html.mustache', { encoding: "utf-8" });
     var output = Mustache.render(template, { publication: this, no_sections: no_sections, sections: sections });
     FS.writeFileSync(this.output_dir + '/' + this.slug + '/index.html', output);
 };
