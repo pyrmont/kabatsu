@@ -61,12 +61,11 @@ Article.prototype.setDOM = function(html) {
 Article.prototype.cache = function() {
     if (!FS.existsSync(this.publication.output_dir + '/' + this.publication.slug)) { FS.mkdirSync(this.publication.output_dir + '/' + this.publication.slug); }
 
-    var filename = SuperString(this.title).slugify().s;
     var prev = (this.id > 0) ? this.publication.articles[this.id - 1].uris.local : null;
     var next = (this.id + 1 <  this.publication.articles.length) ? this.publication.articles[this.id + 1].uris.local : null;
     var template = FS.readFileSync(this.publication.template_dir + '/article.html.mustache', { encoding: "utf-8" });
     var output = Mustache.render(template, { publication: this.publication, article: this, index: '/' + this.publication.slug + '/', prev: prev, next: next });
-    FS.writeFileSync(this.publication.output_dir + '/' + this.publication.slug + '/' + filename + '.html', output);
+    FS.writeFileSync(this.publication.output_dir + this.uris.local, output);
 }
 
 /*
