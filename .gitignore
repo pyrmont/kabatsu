@@ -15,5 +15,4 @@ results
 npm-debug.log
 node_modules/
 output/
-publications/*.js
-publications/*.mustache
+publications/
