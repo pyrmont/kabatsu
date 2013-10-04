@@ -18,10 +18,11 @@ npm install
 
 Once you have installed Kabatsu, you will need to do the following:
 
-1. create ```publications``` directory and inside create a ```.js``` file for each publication you wish to retrieve;
-2. setup the necessary variables in this file;
+1. create a ```publications``` directory;
+2. create a ```.js``` file for each publication you wish to retrieve inside the ```publications``` directory;
+3. setup the necessary variables in this file;
 3. override any functions from the ```Publication``` and ```Article``` classes as required;
-4. move ```examples/publications.js``` to ```publications/publications.js``` and point it at the scripts for the publications you wish to retrieve.
+4. move ```examples/publications.js``` to ```publications/publications.js``` and point it at the .js files for the publications you wish to retrieve.
 
 ## Examples
 
