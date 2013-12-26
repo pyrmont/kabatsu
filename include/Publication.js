@@ -41,6 +41,7 @@ function Publication(name, uris, slug, included_sections, output_dir, template_d
     this.links = links;
     this.output_dir = output_dir;
     this.template_dir = template_dir;
+    this.cookie_data = cookie_data;
 };
 
 /*
