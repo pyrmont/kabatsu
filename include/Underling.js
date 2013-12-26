@@ -48,7 +48,14 @@ Underling.prototype.retrieve = function() {
 
     this.publications.forEach(function(publication) {
         Request(publication.uris.toc, function(error, response, body) {
-
+            var publication_jar = Request.jar();
+            var cookie = Request.cookie('');
+            cookie = publication.createCookie(cookie);
+            
+            if (cookie) {
+                publication_jar.setCookie(cookie, publication.cookie_data.server, function(err, cookie) {});
+            }
+            
             if (!error && response.statusCode == 200) {
                 publication.setDirectories(underling.output_dir, underling.template_dir);
                 publication.setDOM(body);
@@ -60,19 +67,32 @@ Underling.prototype.retrieve = function() {
                 if (num_completed == underling.publications.length) { underling.cache(); }
 
                 publication.articles.forEach(function(article) {
-                    Request(article.uris['retrieve'], function(error, response, body) {
-
+                    var options = {
+                        url: article.uris['retrieve'],
+                        jar: publication_jar
+                    }
+                    Request(options, function(error, response, body) {
+                        
                         if (!error && response.statusCode == 200) {
                             article.setDOM(body);
                             article.extractContent();
                             article.cache(); // Save the article to 'output/<publication.slug>/<SuperString(article.title).slugify>.html'.
                         } else { // TODO: Write better error handling.
-                            console.log('Error ' + response.statusCode + ': There was an error retrieving the content for the article "' + article.title +'" in ' + publication.name + '.');
+                            if (response) {
+                                console.log('Error ' + response.statusCode + ': There was an error retrieving the content for the article "' + article.title +'" in ' + publication.name + '.');
+                            } else {
+                                console.log(error);
+                            }
                         }
                     }).setMaxListeners(200);
                 });
             } else { // TODO: Write better error handling.
-                console.log('Error ' + response.statusCode + ': There was an error retrieving the TOC for ' + publication.name + '.');
+                
+                if (response) {
+                    console.log('Error ' + response.statusCode + ': There was an error retrieving the TOC for ' + publication.name + '.');
+                } else {
+                    console.log(error);
+                }
             }
         });
     });

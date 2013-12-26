@@ -6,7 +6,7 @@
         "mustache" : "0.7.2",
         "moment" : "2.1.0",
         "ncp" : "0.4.2",
-        "request" : "2.27.0",
+        "request" : "2.30.0",
         "string" : "1.5.1"
     }
 }

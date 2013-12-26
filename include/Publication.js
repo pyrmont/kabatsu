@@ -29,7 +29,7 @@ var SuperString = require('string');
 *  @param {String} [output_dir] - The output directory.
 *  @param {String} [template_dir] - The template directory.
 */
-function Publication(name, uris, slug, included_sections, output_dir, template_dir, date, dom, articles, links, output_dir, template_dir) {
+function Publication(name, uris, slug, included_sections, output_dir, template_dir, date, dom, articles, links, output_dir, template_dir, cookie_data) {
     this.name = name;
     this.uris = uris;
     this.slug = slug;
@@ -105,6 +105,28 @@ Publication.prototype.cache = function() {
     var output = Mustache.render(template, { publication: this, no_sections: no_sections, sections: sections });
     FS.writeFileSync(this.output_dir + '/' + this.slug + '/index.html', output);
 };
+
+/*
+*  @method createCookie
+*
+*  Creates a cookie based on the data passed in at the time of construction. Returns null if no data was provided.
+*
+*/
+Publication.prototype.createCookie = function(cookie) {
+    
+    if (!this.cookie_data) {
+        return null;
+    } else {
+        cookie.key = this.cookie_data.key;
+        cookie.value = this.cookie_data.value;
+        cookie.domain = this.cookie_data.domain;
+        cookie.path = this.cookie_data.path;
+        cookie.hostOnly = this.cookie_data.host_only;
+        cookie.expires = new Date(this.cookie_data.expires);
+        
+        return cookie;
+    }
+}
 
 /*
 *  @method extractDate
