@@ -3,7 +3,7 @@ body { background-color: #ffffff; color: #222222; font-family: 'Alegreya', 'Geor
 a { color: #336699; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-blockquote { font-style: italic; margin-left: 2em; opacity: 0.8; }
+blockquote { font-style: italic; margin-left: 2em; margin-right: 2em; opacity: 0.8; }
 em { font-style: italic; }
 strong { font-weight: 800; }
 
