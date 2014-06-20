@@ -2,41 +2,41 @@
 
 <head>
 
-	<meta charset="utf-8">
-	
-	<title>{{ publication.name }} for {{ publication.date }}</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta charset="utf-8">
+
+    <title>{{ publication.name }} for {{ publication.date }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href='/assets/reset.css' type='text/css'>
     <link rel="stylesheet" href="/assets/base.css" type="text/css">
-		
+
 </head>
 
 <body class="contents">
-    
+
     <h1>{{ publication.name }}</h1>
     <h2>{{ publication.date }} </h2>
-    
+
     {{ #no_sections }}
-    
+
     <h4><a href="{{{ uris.local }}}">{{ title }}</a></h4>
     <h5>{{ byline }}</h5>
-    
+
     {{ /no_sections }}
-    
+
     {{ #sections }}
 
     <h3>{{ title }}</h3>
-    
+
     {{ #articles }}
-    
+
     <h4><a href="{{{ uris.local }}}">{{ title }}</a></h4>
     <h5>{{ byline }}</h5>
-    
+
     {{ /articles }}
-    
+
     {{ /sections }}
 </body>
 </html>

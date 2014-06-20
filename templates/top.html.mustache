@@ -2,28 +2,28 @@
 
 <head>
 
-	<meta charset="utf-8">
-	
-	<title>Kabatsu, a more pleasant way to read online publications.</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta charset="utf-8">
+
+    <title>Kabatsu, a more pleasant way to read online publications.</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href='/assets/reset.css' type='text/css'>
     <link rel="stylesheet" href="/assets/base.css" type="text/css">
-		
+
 </head>
 
 <body class="top">
-    
+
     {{ #publications }}
-    
+
     <h2><a href="/{{{ slug }}}">{{ name }}</a></h1>
     <h3><a href="/{{{ slug }}}">{{ date }}</a></h2>
-    
+
     {{ /publications }}
-    
+
     <h1>This is <span class="title">Kabatsu</span>.</h1>
-    
+
 </body>
 </html>

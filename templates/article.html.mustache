@@ -2,12 +2,12 @@
 
 <head>
 
-	<meta charset="utf-8">
-	
-	<title>{{ article.title }}</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta charset="utf-8">
+
+    <title>{{ article.title }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href='/assets/reset.css' type='text/css'>
     <link rel="stylesheet" href="/assets/base.css" type="text/css">
@@ -15,17 +15,17 @@
 </head>
 
 <body class="article">
-    
+
     <article>
         <h1><a href="#footer">{{ article.title }}</a></h1>
         <h2>{{ article.byline }}</h2>
         <h3>{{ publication.date }} </h3>
-    
+
         <div class="content">
             {{{ article.content }}}
         </div>
     </article>
-    
+
     <div class="controls">
         {{ #prev }}
         <a href="{{{ prev }}}" class="previous" id="previous">Previous</a>
@@ -35,7 +35,7 @@
         <a href="{{{ next }}}" class="next" id="next">Next</a>
         {{ /next }}
     </div>
-    
+
     <footer>
         <a name="footer"></a>
         <p>This article was originally published in {{ publication.name }} on {{ publication.date }}. You can access the original story at <a href="{{{ article.uris.citation }}}">{{{ article.uris.display }}}</a>.</p>
